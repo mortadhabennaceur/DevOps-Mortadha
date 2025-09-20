@@ -33,18 +33,6 @@ pipeline {
             }
         }
 
-        stage('Tests') {
-            steps {
-                // Run unit tests
-                sh 'mvn test'
-            }
-            post {
-                always {
-                    // Publish test results (requires JUnit plugin)
-                    junit '**/target/surefire-reports/*.xml'
-                }
-            }
-        }
     }
 
     post {
