@@ -6,7 +6,7 @@ pipeline {
         stage('Récupération du code source') {
             steps {
                 // Checkout code from the Git repository
-                git url: 'https://github.com/mortadhabennaceur/DevOps-Mortadha.git', branch: '${BRANCH_NAME}'
+                git url: 'https://github.com/mortadhabennaceur/DevOps-Mortadha.git', branch: 'add-jenkinsfile'
             }
         }
 
