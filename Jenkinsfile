@@ -30,6 +30,21 @@ pipeline {
             }
         }
 
+	stage('SonarQube Analysis') {
+            steps {
+                withSonarQubeEnv('SonarQube') {  // Use your SonarQube server name
+                    sh 'mvn clean verify sonar:sonar -Dsonar.projectKey=student-management -Dsonar.host.url=http://192.168.33.10:9000'
+                }
+            }
+        }
+        stage('Quality Gate') {
+            steps {
+                timeout(time: 5, unit: 'MINUTES') {
+                    waitForQualityGate abortPipeline: true
+                }
+            }
+        }
+
         stage('Création du livrable') {
             steps {
                 // Package the application (creates JAR/WAR in target/)
