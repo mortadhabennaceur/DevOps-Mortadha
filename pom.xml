@@ -61,13 +61,12 @@
             <version>2.1.0</version>
         </dependency>
 
-	<dependency>
+<dependency>
     <groupId>com.h2database</groupId>
     <artifactId>h2</artifactId>
     <scope>runtime</scope>
 </dependency>
-
-    </dependencies>
+</dependencies>
 
     <build>
     <plugins>
