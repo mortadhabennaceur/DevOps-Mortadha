@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: student-management-deployment
+spec:
+  replicas: 1  # Number of pods (start with 1, scale later for testing)
+  selector:
+    matchLabels:
+      app: student-management
+  template:
+    metadata:
+      labels:
+        app: student-management
+    spec:
+      containers:
+        - name: student-management
+          image: chika20139/student-management:latest  # Your DockerHub image
+          ports:
+            - containerPort: 8089  # Your app's port (from logs)
+          imagePullPolicy: Always  # Always pull the latest image
